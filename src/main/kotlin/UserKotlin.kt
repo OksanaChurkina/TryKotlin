@@ -1,0 +1,1 @@
+class UserKotlin(var email: String) //mutable

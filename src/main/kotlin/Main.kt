@@ -3,27 +3,32 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-fun main() = runBlocking {
-    val deferred1 = async { computation1() }
-    val deferred2 = async { computation2() }
-    printCurrentTime("Awaiting computations...")
-    val result = deferred1.await() + deferred2.await()
-    printCurrentTime("The result is $result")
+fun main(args: Array<String>) {
+    val userJava = UserJava("oks@mail.ru")
+    println(userJava.email)
+
+   val userKotlin = UserKotlin("test@mail.com")
+    println(userKotlin.email)
+
+    val st: String? //nullable
+    st = getSt()
+   val size = st!!.length // can be null
+    println(size)
+
+
+}
+fun getSt(): String?{
+    return null
+}
+fun function() : Int{
+    return 1
 }
 
-suspend fun computation1(): Int {
-    delay(1000L) // simulated computation
-    printCurrentTime("Computation1 finished")
-    return 131
+fun function2(a: Long):Int{
+
+    return a.toInt()
 }
 
-suspend fun computation2(): Int {
-    delay(2000L)
-    printCurrentTime("Computation2 finished")
-    return 9
-}
+fun func3(){
 
-fun printCurrentTime(message: String) {
-    val time = (SimpleDateFormat("hh:mm:ss")).format(Date())
-    println("[$time] $message")
 }
